@@ -3,11 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I need location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>I need location</string>
-	<key>NSLocationUsageDescription</key>
-	<string>I need location</string>
+	<string></string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

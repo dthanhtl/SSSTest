@@ -26,6 +26,9 @@
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M4b-pN-VrQ">
                                 <rect key="frame" x="0.0" y="60" width="600" height="556"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="TBL-pC-Ks4"/>
+                                </connections>
                             </mapView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-bz-2BR">
                                 <rect key="frame" x="297" y="328" width="20" height="20"/>

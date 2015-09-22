@@ -10,13 +10,6 @@
 #import "AutoCompleteTableView.h"
 #import "Route.h"
 
-#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
-
-
 
 @interface ViewController ()
 
@@ -38,34 +31,32 @@
 
 #pragma mark -- life circle
 
--(void)viewWillAppear:(BOOL)animated{
-    
-//    self.locationManager = [[CLLocationManager alloc] init];
-//    
-//    //    if (SYSTEM_VERSION_GREATER_THAN(@"8.0")) {
-//    [self.locationManager requestWhenInUseAuthorization];
-//    [self.locationManager requestAlwaysAuthorization];
-//    [self.mapView setShowsUserLocation:NO];
 
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     
+    
 //    }
     
-    if (SYSTEM_VERSION_GREATER_THAN(@"8.0")) {
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
         [self.locationManager requestWhenInUseAuthorization];
-        [self.locationManager requestAlwaysAuthorization];
-        [self.mapView setShowsUserLocation:YES];
-        [self.locationManager startUpdatingLocation];
+        self.locationManager.delegate = self;
+//        [self.locationManager requestAlwaysAuthorization];
     }
     
+    [self.locationManager startUpdatingLocation];
     
     
     [self.mapView setShowsUserLocation:YES];
+//    [self.mapView setMapType:MKMapTypeStandard];
+//    [self.mapView setZoomEnabled:YES];
+//    [self.mapView setScrollEnabled:YES];
     
     
     self.centerAnno = [[MKPointAnnotation alloc] init];
