@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-AT-Dfh">
+                                <rect key="frame" x="0.0" y="16" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cGN-uN-NVQ"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M4b-pN-VrQ">
+                                <rect key="frame" x="0.0" y="60" width="600" height="556"/>
+                            </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-bz-2BR">
+                                <rect key="frame" x="297" y="328" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="11L-xb-Szg"/>
+                                    <constraint firstAttribute="width" constant="20" id="St2-wy-h9v"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fac-AT-Dfh" firstAttribute="centerX" secondItem="M4b-pN-VrQ" secondAttribute="centerX" id="3qY-bv-noM"/>
+                            <constraint firstItem="Ien-bz-2BR" firstAttribute="centerY" secondItem="M4b-pN-VrQ" secondAttribute="centerY" id="NYy-Dj-xly"/>
+                            <constraint firstItem="Ien-bz-2BR" firstAttribute="centerX" secondItem="M4b-pN-VrQ" secondAttribute="centerX" constant="7" id="UyB-z3-NwP"/>
+                            <constraint firstItem="Fac-AT-Dfh" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Z1h-Gd-hWB"/>
+                            <constraint firstItem="M4b-pN-VrQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="aab-Xj-MxS"/>
+                            <constraint firstItem="M4b-pN-VrQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ha0-RB-A72"/>
+                            <constraint firstItem="Fac-AT-Dfh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="16" id="hqA-gU-uei"/>
+                            <constraint firstAttribute="height" secondItem="M4b-pN-VrQ" secondAttribute="height" constant="44" id="nsg-YN-p5s"/>
+                            <constraint firstAttribute="centerX" secondItem="Fac-AT-Dfh" secondAttribute="centerX" id="qqn-ce-f6A"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="indicator" destination="Ien-bz-2BR" id="eid-Jw-2pF"/>
+                        <outlet property="mapView" destination="M4b-pN-VrQ" id="0tS-Gt-UIA"/>
+                        <outlet property="searchBar" destination="Fac-AT-Dfh" id="VxO-Be-saG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
